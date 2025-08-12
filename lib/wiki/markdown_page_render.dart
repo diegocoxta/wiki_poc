@@ -15,6 +15,7 @@ class MarkdownPageRender extends StatefulWidget {
 
 class _MarkdownPageRenderState extends State<MarkdownPageRender> {
   String content = '';
+  final TocController tocController = TocController();
 
   @override
   void initState() {
@@ -39,10 +40,32 @@ class _MarkdownPageRenderState extends State<MarkdownPageRender> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: MarkdownWidget(
-        data: content,
-        selectable: true,
-        config: MarkdownConfig(configs: [PreConfig(theme: a11yLightTheme)]),
+      child: Row(
+        children: [
+          Expanded(
+            child: MarkdownWidget(
+              data: content,
+              tocController: tocController,
+              selectable: true,
+              config: MarkdownConfig(
+                configs: [PreConfig(theme: a11yLightTheme)],
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 250,
+            child: Column(
+              children: [
+                Text(
+                  "Conteúdo",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+                Expanded(child: TocWidget(controller: tocController)),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
