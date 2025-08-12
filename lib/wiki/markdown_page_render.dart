@@ -2,17 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:flutter_highlight/themes/a11y-light.dart';
 import 'package:flutter/services.dart' show rootBundle;
-import '../constants.dart';
+import 'package:wiki_project/constants.dart';
 
-class DocPage extends StatefulWidget {
+class MarkdownPageRender extends StatefulWidget {
   final String fileName;
-  const DocPage({super.key, required this.fileName});
+
+  const MarkdownPageRender({super.key, required this.fileName});
 
   @override
-  State<DocPage> createState() => _DocPageState();
+  State<MarkdownPageRender> createState() => _MarkdownPageRenderState();
 }
 
-class _DocPageState extends State<DocPage> {
+class _MarkdownPageRenderState extends State<MarkdownPageRender> {
   String content = '';
 
   @override
@@ -36,10 +37,13 @@ class _DocPageState extends State<DocPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MarkdownWidget(
-      data: content,
-      selectable: true,
-      config: MarkdownConfig(configs: [PreConfig(theme: a11yLightTheme)]),
+    return Container(
+      color: Colors.white,
+      child: MarkdownWidget(
+        data: content,
+        selectable: true,
+        config: MarkdownConfig(configs: [PreConfig(theme: a11yLightTheme)]),
+      ),
     );
   }
 }

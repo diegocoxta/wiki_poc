@@ -1,30 +1,18 @@
 import 'package:go_router/go_router.dart';
-import 'layout.dart';
-import 'page.dart';
-import '../docs_index.g.dart';
+import 'package:wiki_project/wiki/template.dart';
+import 'package:wiki_project/wiki/markdown_page_render.dart';
+import 'package:wiki_project/docs_index.g.dart';
 
 final appRouter = GoRouter(
   routes: [
     ShellRoute(
-      builder: (context, state, child) => MainLayout(child: child),
+      builder: (context, state, child) => Template(child: child),
       routes: [
-        // Home (index.md da raiz)
-        GoRoute(
-          path: '/',
-          builder: (context, state) {
-            final homeDoc = docsIndex.firstWhere(
-              (d) => d['slug'] == '',
-              orElse: () => docsIndex.first,
-            );
-            return DocPage(fileName: homeDoc['file']!);
-          },
-        ),
-
-        // Todas as outras rotas
-        for (var doc in docsIndex.where((d) => d['slug']!.isNotEmpty))
+        for (var doc in docsIndex)
           GoRoute(
-            path: '/docs/${doc['slug']}',
-            builder: (context, state) => DocPage(fileName: doc['file']!),
+            path: doc['slug'] == '' ? '/' : '/${doc['slug']}',
+            builder: (context, state) =>
+                MarkdownPageRender(fileName: doc['file']!),
           ),
       ],
     ),

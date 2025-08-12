@@ -1,6 +1,7 @@
 // GENERATED FILE — do not edit manually.
 final List<Map<String, String>> docsIndex = [
-  {'title': 'Pagina Sub', 'file': 'sub/teste.md', 'slug': 'sub/teste'},
-  {'title': 'Seria INdex?', 'file': 'sub/index.md', 'slug': 'sub'},
-  {'title': 'Bem-vindo ao My Docs', 'file': 'index.md', 'slug': ''},
+  {'title': 'Outro Doc', 'file': 'outro-doc.md', 'slug': 'outro-doc'},
+  {'title': 'Página de Teste', 'file': 'sub/teste.md', 'slug': 'sub/teste'},
+  {'title': 'Index da pasta', 'file': 'sub/index.md', 'slug': 'sub'},
+  {'title': 'Wiki POC', 'file': 'index.md', 'slug': ''},
 ];

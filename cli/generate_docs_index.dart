@@ -1,10 +1,11 @@
 import 'dart:io';
 import 'package:path/path.dart' as p;
+import 'package:wiki_project/constants.dart';
 
 void main() {
-  final docsDir = Directory('assets/docs');
+  final docsDirConstant = Directory(docsDir);
 
-  final files = docsDir
+  final files = docsDirConstant
       .listSync(recursive: true)
       .whereType<File>()
       .where((f) => f.path.toLowerCase().endsWith('.md'))
@@ -15,7 +16,7 @@ void main() {
   buffer.writeln('final List<Map<String, String>> docsIndex = [');
 
   for (final file in files) {
-    final relativePath = p.relative(file.path, from: 'assets/docs');
+    final relativePath = p.relative(file.path, from: docsDir);
     final cleanPath = relativePath.replaceAll('\\', '/');
 
     // Tira extensão .md
@@ -47,5 +48,32 @@ void main() {
 
   buffer.writeln('];');
   File('lib/docs_index.g.dart').writeAsStringSync(buffer.toString());
+
+  // --- ATUALIZAR PUBSPEC COM AS PASTAS ---
+  final pubspec = File('pubspec.yaml').readAsStringSync().split('\n');
+  final assetIndex = pubspec.indexWhere((line) => line.trim() == 'assets:');
+  if (assetIndex != -1) {
+    // Encontra todas as pastas únicas
+    final folders = {
+      'docs/',
+      ...files
+          .map((f) => 'docs/${p.dirname(p.relative(f.path, from: 'docs'))}/')
+          .where((f) => f != 'docs/'),
+    };
+
+    // Remove linhas antigas de docs
+    pubspec.removeWhere((line) => line.trim().startsWith('- docs/'));
+
+    // Adiciona novamente
+    var insertIndex = assetIndex + 1;
+    for (final folder in folders) {
+      pubspec.insert(insertIndex, '    - $folder');
+      insertIndex++;
+    }
+
+    File('pubspec.yaml').writeAsStringSync(pubspec.join('\n'));
+    print('📄 pubspec.yaml atualizado com pastas de docs.');
+  }
+
   print('✅ docs_index.g.dart atualizado com ${files.length} arquivos.');
 }
