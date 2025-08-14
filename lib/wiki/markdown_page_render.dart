@@ -55,11 +55,14 @@ class _MarkdownPageRenderState extends State<MarkdownPageRender> {
           SizedBox(
             width: 250,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Conteúdo",
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                Padding(
+                  padding: EdgeInsets.only(left: 30),
+                  child: Text(
+                    "Conteúdo",
+                    style: TextTheme.of(context).titleLarge,
+                  ),
                 ),
                 Expanded(child: TocWidget(controller: tocController)),
               ],
