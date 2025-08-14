@@ -23,6 +23,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/docs/
-    - assets/docs/./
-    - assets/docs/sub/
+    - content/
+    - content/./
+    - content/sub/

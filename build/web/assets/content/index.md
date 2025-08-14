@@ -29,7 +29,7 @@ class MarkdownPage extends StatelessWidget {
 ```
 
 **Teste de imagem**
-![alt text](./docs/mark.png "Logo do Markdown")
+![alt text](./content/mark.png "Logo do Markdown")
 
 Suspendisse leo ligula, imperdiet id porttitor vitae, sodales viverra lacus. Quisque eu lacus sed urna ultricies tempor non in turpis. Sed varius condimentum eros, non commodo enim volutpat dapibus. Vivamus tempus eleifend urna in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida elit eu sollicitudin suscipit. Donec sit amet laoreet odio. Proin molestie lacinia ex, sed tempus mi. Sed pellentesque maximus feugiat. Pellentesque consectetur purus mauris, ac efficitur odio ultrices in. Aliquam scelerisque sodales massa ut pharetra. Cras finibus aliquam dui ut laoreet.
 
