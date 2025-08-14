@@ -10,6 +10,27 @@ Este é um site de documentação feito com **Flutter Web**.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris semper elit vitae tempor fringilla. Vestibulum quis ante ornare, lacinia ligula at, lacinia erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Ut felis sem, viverra in eros at, rhoncus sollicitudin sapien. Aliquam erat volutpat. Sed vulputate, tellus malesuada interdum tempor, lectus ipsum maximus urna, eu efficitur orci dolor ut tellus. Aliquam venenatis vestibulum feugiat. Praesent non auctor massa, porta semper justo. Sed bibendum magna arcu. Cras ligula lacus, finibus posuere imperdiet eu, tristique sed nibh. Praesent pretium diam vel nisl porta, et semper tortor egestas. In vitae viverra ante.
 
+**Teste de código c/ highlight**
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:markdown_widget/markdown_widget.dart';
+
+class MarkdownPage extends StatelessWidget {
+  final String data;
+
+  MarkdownPage(this.data);
+
+  @override
+  Widget build(BuildContext context) => Scaffold(body: buildMarkdown());
+
+  Widget buildMarkdown() => MarkdownWidget(data: data);
+}
+```
+
+**Teste de imagem**
+![alt text](./docs/mark.png "Logo do Markdown")
+
 Suspendisse leo ligula, imperdiet id porttitor vitae, sodales viverra lacus. Quisque eu lacus sed urna ultricies tempor non in turpis. Sed varius condimentum eros, non commodo enim volutpat dapibus. Vivamus tempus eleifend urna in ultrices. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut gravida elit eu sollicitudin suscipit. Donec sit amet laoreet odio. Proin molestie lacinia ex, sed tempus mi. Sed pellentesque maximus feugiat. Pellentesque consectetur purus mauris, ac efficitur odio ultrices in. Aliquam scelerisque sodales massa ut pharetra. Cras finibus aliquam dui ut laoreet.
 
 Fusce nec sapien non arcu ultrices aliquet. Suspendisse eget ex quis est aliquam dapibus. Ut eget finibus elit, a finibus nisl. Integer eget ipsum et purus mattis imperdiet ultricies viverra nunc. Phasellus pulvinar, odio et ornare venenatis, purus massa congue diam, eu facilisis justo lacus ut lorem. Morbi blandit gravida odio, ut eleifend quam tincidunt vitae. Fusce et ornare augue. Proin urna massa, fringilla non elit ac, porta blandit neque. Maecenas consectetur ligula sed leo fringilla laoreet. Proin ac elit eros. Aliquam dapibus euismod metus nec pharetra. Nunc ornare sed tellus a consequat.

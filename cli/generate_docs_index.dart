@@ -55,14 +55,16 @@ void main() {
   if (assetIndex != -1) {
     // Encontra todas as pastas únicas
     final folders = {
-      'docs/',
+      '$docsDir/',
       ...files
-          .map((f) => 'docs/${p.dirname(p.relative(f.path, from: 'docs'))}/')
+          .map(
+            (f) => '$docsDir/${p.dirname(p.relative(f.path, from: docsDir))}/',
+          )
           .where((f) => f != 'docs/'),
     };
 
     // Remove linhas antigas de docs
-    pubspec.removeWhere((line) => line.trim().startsWith('- docs/'));
+    pubspec.removeWhere((line) => line.trim().startsWith('- $docsDir/'));
 
     // Adiciona novamente
     var insertIndex = assetIndex + 1;

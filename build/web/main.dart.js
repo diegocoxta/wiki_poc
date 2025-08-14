@@ -83649,7 +83649,7 @@ yt(){var s=0,r=A.O(t.H),q=1,p=[],o=this,n,m,l
 var $async$yt=A.P(function(a,b){if(a===1){p.push(b)
 s=q}while(true)switch(s){case 0:q=3
 s=6
-return A.U($.GF().akN("docs/"+o.a.c),$async$yt)
+return A.U($.GF().akN("assets/docs/"+o.a.c),$async$yt)
 case 6:n=b
 o.ar(new A.alb(o,n))
 q=1

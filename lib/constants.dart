@@ -1,2 +1,2 @@
-final docsDir = 'docs';
+final docsDir = 'assets/docs';
 final appTitle = 'Wiki Poc';
