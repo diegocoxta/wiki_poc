@@ -29,7 +29,7 @@ class Template extends StatelessWidget {
             SizedBox(
               width: 250,
               child: Drawer(
-                backgroundColor: backgroundColor,
+                backgroundColor: Colors.grey[200],
                 child: ListView(
                   padding: const EdgeInsets.all(8),
                   children: [

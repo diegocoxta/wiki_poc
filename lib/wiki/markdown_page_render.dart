@@ -43,29 +43,50 @@ class _MarkdownPageRenderState extends State<MarkdownPageRender> {
       child: Row(
         children: [
           Expanded(
-            child: MarkdownWidget(
-              data: content,
-              tocController: tocController,
-              selectable: true,
-              config: MarkdownConfig(
-                configs: [PreConfig(theme: a11yLightTheme)],
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: MarkdownWidget(
+                data: content,
+                tocController: tocController,
+                selectable: true,
+                config: MarkdownConfig(
+                  configs: [PreConfig(theme: a11yLightTheme)],
+                ),
               ),
             ),
           ),
           SizedBox(
             width: 250,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 30),
-                  child: Text(
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.grey[100],
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
                     "Conteúdo",
-                    style: TextTheme.of(context).titleLarge,
+                    style: TextTheme.of(
+                      context,
+                    ).titleMedium!.copyWith(fontWeight: FontWeight.bold),
                   ),
-                ),
-                Expanded(child: TocWidget(controller: tocController)),
-              ],
+                  Expanded(
+                    child: Container(
+                      transform: Matrix4.translationValues(-35.0, 0.0, 0.0),
+                      child: TocWidget(
+                        controller: tocController,
+                        tocTextStyle: TextStyle(fontSize: 12),
+                        currentTocTextStyle: TextStyle(
+                          fontSize: 12,
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
