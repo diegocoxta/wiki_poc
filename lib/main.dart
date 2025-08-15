@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:wiki_project/constants.dart';
-import 'package:wiki_project/wiki/routes.dart';
+import 'package:wiki_project/wiki/router.dart';
 
 void main() {
-  runApp(const WikiPoc());
+  runApp(const Wiki());
 }
 
-class WikiPoc extends StatelessWidget {
-  const WikiPoc({super.key});
+class Wiki extends StatelessWidget {
+  const Wiki({super.key});
 
   @override
   Widget build(BuildContext context) {
